@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { idHelpers } from "./library/helpers";
+import { idHelpers, arrayHelpers } from "./library/helpers";
+
+console.log(arrayHelpers.getRandomElement([1, 2, 3]));
 
 function App() {
   return (
