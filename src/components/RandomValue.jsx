@@ -1,5 +1,11 @@
 import { arrayHelpers } from "../library/helpers";
 
 export function RandomValue() {
-  return <div>{arrayHelpers.getRandomElement([1, 2, 3])}</div>;
+  const value = arrayHelpers.getRandomElement([1, 2, 3]);
+
+  return (
+    <div>
+      {value} is {value % 2 === 1 ? "odd" : "even"}
+    </div>
+  );
 }
