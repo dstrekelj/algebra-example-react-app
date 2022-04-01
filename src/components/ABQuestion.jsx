@@ -1,16 +1,15 @@
 import PropTypes from "prop-types";
 
 export function ABQuestion(props) {
+  const handleOnClickA = () => props.onChoice(props.buttonAValue);
+  const handleOnClickB = () => props.onChoice(props.buttonBValue);
+
   return (
     <div>
       <p>{props.question}</p>
       <div>
-        <button onClick={() => props.onChoice(props.buttonAValue)}>
-          {props.buttonA}
-        </button>
-        <button onClick={() => props.onChoice(props.buttonBValue)}>
-          {props.buttonB}
-        </button>
+        <button onClick={handleOnClickA}>{props.buttonA}</button>
+        <button onClick={handleOnClickB}>{props.buttonB}</button>
       </div>
     </div>
   );
