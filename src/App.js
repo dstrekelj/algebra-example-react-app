@@ -3,8 +3,11 @@ import "./App.css";
 import { idHelpers } from "./library/helpers";
 import { RandomValue } from "./components/RandomValue";
 import { RepositoryLink } from "./components/RepositoryLink";
+import { ABQuestion } from "./components/ABQuestion";
 
 function App() {
+  const handleButtonAClick = () => console.log("Clicked A");
+  const handleButtonBClick = () => console.log("Clicked B");
   return (
     <div className="App">
       <header className="App-header">
@@ -13,6 +16,10 @@ function App() {
         <p>Your unique ID is: {idHelpers.generateId()}</p>
         <RepositoryLink>View Repository</RepositoryLink>
         <RandomValue values={[4, 5, 6]} />
+        <ABQuestion
+          onButtonAClick={handleButtonAClick}
+          onButtonBClick={handleButtonBClick}
+        />
       </header>
     </div>
   );
