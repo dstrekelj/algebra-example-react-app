@@ -1,7 +1,7 @@
 import { arrayHelpers } from "../library/helpers";
 
-export function RandomValue() {
-  const value = arrayHelpers.getRandomElement([1, 2, 3]);
+export function RandomValue(props) {
+  const value = arrayHelpers.getRandomElement(props.values);
 
   return (
     <div>

@@ -11,8 +11,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>algebra-example-react-app</h1>
         <p>Your unique ID is: {idHelpers.generateId()}</p>
-        <RepositoryLink />
-        <RandomValue />
+        <RepositoryLink>View Repository</RepositoryLink>
+        <RandomValue values={[4, 5, 6]} />
       </header>
     </div>
   );
