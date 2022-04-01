@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export function ABQuestion(props) {
   return (
     <div>
@@ -9,3 +11,8 @@ export function ABQuestion(props) {
     </div>
   );
 }
+
+ABQuestion.propTypes = {
+  onButtonAClick: PropTypes.func.isRequired,
+  onButtonBClick: PropTypes.func.isRequired,
+};
