@@ -1,7 +1,19 @@
-export function RepositoryLink() {
-  return (
-    <a className="App-link" href="https://github.com/dstrekelj/algebra-example-react-app">
-      GitHub Repository Link
-    </a>
-  );
+import React from "react";
+
+export class RepositoryLink extends React.Component {
+  constructor(props) {
+    super();
+    this.props = props;
+  }
+
+  render() {
+    return (
+      <a
+        className="App-link"
+        href="https://github.com/dstrekelj/algebra-example-react-app"
+      >
+        GitHub Repository Link
+      </a>
+    );
+  }
 }
