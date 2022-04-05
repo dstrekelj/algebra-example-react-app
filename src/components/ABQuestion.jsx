@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 import "./ABQuestion.css";
 
 export function ABQuestion(props) {
-  const handleOnClickA = () => props.onChoice(props.buttonAValue);
-  const handleOnClickB = () => props.onChoice(props.buttonBValue);
+  const handleOnClickA = () => props.onChoice(props.id, props.buttonAValue);
+  const handleOnClickB = () => props.onChoice(props.id, props.buttonBValue);
 
   return (
     <div className="ABQuestion">
@@ -21,6 +21,7 @@ export function ABQuestion(props) {
 }
 
 ABQuestion.propTypes = {
+  id: PropTypes.string.isRequired,
   onChoice: PropTypes.func.isRequired,
   question: PropTypes.string.isRequired,
   buttonA: PropTypes.string.isRequired,
