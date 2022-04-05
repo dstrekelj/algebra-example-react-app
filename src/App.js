@@ -4,6 +4,7 @@ import { idHelpers } from "./library/helpers";
 import { RandomValue } from "./components/RandomValue";
 import { RepositoryLink } from "./components/RepositoryLink";
 import { ABQuestion } from "./components/ABQuestion";
+import { ABCQuestion } from "./components/ABCQuestion";
 
 function App() {
   const handleOnChoice = (choiceValue) => console.log(choiceValue);
@@ -22,6 +23,16 @@ function App() {
           buttonB="Red pill"
           buttonAValue="Blue"
           buttonBValue="Red"
+          onChoice={handleOnChoice}
+        />
+        <ABCQuestion
+          question="Make the right choice"
+          buttonA="Blue pill"
+          buttonB="Red pill"
+          buttonC="Pink pill"
+          buttonAValue="Blue"
+          buttonBValue="Red"
+          buttonCValue="Pink"
           onChoice={handleOnChoice}
         />
       </header>
