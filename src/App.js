@@ -5,12 +5,13 @@ import { RandomValue } from "./components/RandomValue";
 import { RepositoryLink } from "./components/RepositoryLink";
 import { ABQuestion } from "./components/ABQuestion";
 import { ABCQuestion } from "./components/ABCQuestion";
+import { FreeInputQuestion } from "./components/FreeInputQuestion";
 import { useState } from "react";
 
 function App() {
-  const [state, setState] = useState({ question1: null, question2: null });
+  const [state, setState] = useState({});
 
-  const handleOnChoice = (id, choiceValue) => {
+  const handleAnswer = (id, choiceValue) => {
     setState((currentState) => ({
       ...currentState,
       [id]: choiceValue,
@@ -26,8 +27,9 @@ function App() {
         <RepositoryLink>View Repository</RepositoryLink>
         <RandomValue values={[4, 5, 6]} />
         <div>
-          {state.question1}, {state.question2}
+          {state.question1}, {state.question2}, {state.question3}
         </div>
+        <FreeInputQuestion id="question3" text="Enter your name" onKeyUp={handleAnswer} />
         <ABQuestion
           id="question1"
           question="Make the right choice"
@@ -35,7 +37,7 @@ function App() {
           buttonB="Red pill"
           buttonAValue="Blue"
           buttonBValue="Red"
-          onChoice={handleOnChoice}
+          onChoice={handleAnswer}
         />
         <ABCQuestion
           id="question2"
@@ -46,7 +48,7 @@ function App() {
           buttonAValue="Blue"
           buttonBValue="Red"
           buttonCValue="Pink"
-          onChoice={handleOnChoice}
+          onChoice={handleAnswer}
         />
       </header>
     </div>
