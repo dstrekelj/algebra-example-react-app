@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ABCQuestion } from "./ABCQuestion";
 import { ABQuestion } from "./ABQuestion";
 import { FreeInputQuestion } from "./FreeInputQuestion";
 
 export function Quiz(props) {
   const [state, setState] = useState({});
+
+  useEffect(() => {
+    props.onStateChange();
+  }, [state]);
 
   const handleAnswer = (id, choiceValue) => {
     setState((currentState) => ({
