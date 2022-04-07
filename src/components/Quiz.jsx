@@ -3,7 +3,7 @@ import { ABCQuestion } from "./ABCQuestion";
 import { ABQuestion } from "./ABQuestion";
 import { FreeInputQuestion } from "./FreeInputQuestion";
 
-export function Quiz() {
+export function Quiz(props) {
   const [state, setState] = useState({});
 
   const handleAnswer = (id, choiceValue) => {
@@ -13,11 +13,12 @@ export function Quiz() {
     }));
   };
 
+  const handleSubmit = () => {
+    props.onSubmit(state, props.id);
+  };
+
   return (
     <div>
-      <div>
-        {state.question1}, {state.question2}, {state.question3}
-      </div>
       <FreeInputQuestion id="question3" text="Enter your name" onKeyUp={handleAnswer} />
       <ABQuestion
         id="question1"
@@ -39,6 +40,7 @@ export function Quiz() {
         buttonCValue="Pink"
         onChoice={handleAnswer}
       />
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 }
