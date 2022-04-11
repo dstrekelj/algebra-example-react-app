@@ -3,7 +3,24 @@ import { ABCQuestion } from "./ABCQuestion";
 import { ABQuestion } from "./ABQuestion";
 import { FreeInputQuestion } from "./FreeInputQuestion";
 
-const questions = ["Enter your name", "Enter your age", "Enter your favourite food"];
+const questions = [
+  {
+    text: "Enter your name",
+    id: "name",
+  },
+  {
+    text: "Enter your age",
+    id: "age",
+  },
+  {
+    text: "Enter your favourite food",
+    id: "food",
+  },
+  {
+    text: "Enter your city",
+    id: "city",
+  },
+];
 
 export function Quiz(props) {
   const [state, setState] = useState({});
@@ -23,12 +40,12 @@ export function Quiz(props) {
     props.onSubmit(state, props.id);
   };
 
-  const questionsMap = questions.map((question, index) => {
+  const questionsMap = questions.map((question) => {
     return (
       <FreeInputQuestion
-        key={index}
-        id={`freeInputQuestion${index}`}
-        text={question}
+        key={question.id}
+        id={question.id}
+        text={question.text}
         onKeyUp={handleAnswer}
       />
     );
