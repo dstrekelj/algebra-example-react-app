@@ -4,6 +4,7 @@ import { RepositoryLink } from "./components/RepositoryLink";
 import { Quiz } from "./components/Quiz";
 import { useState } from "react";
 import { LoginForm } from "./components/LoginForm";
+import { Timer } from "./components/Timer";
 
 function App() {
   const [actionCount, setActionCount] = useState(0);
@@ -42,7 +43,10 @@ function App() {
           </div>
         )}
         {quizAnswer === null && loginState !== null && (
-          <Quiz id={id} onSubmit={handleSubmit} onStateChange={handleStateChange} />
+          <>
+            <Timer onStop={(time) => console.log(time)} />
+            <Quiz id={id} onSubmit={handleSubmit} onStateChange={handleStateChange} />
+          </>
         )}
         {quizAnswer !== null && answerComponents}
       </header>
