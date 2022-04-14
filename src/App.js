@@ -44,7 +44,7 @@ function App() {
         )}
         {quizAnswer === null && loginState !== null && (
           <>
-            <Timer onFinish={handleTimerFinish} />
+            <Timer onTick={(time) => console.log(time)} onFinish={handleTimerFinish} />
             <Quiz id={id} onSubmit={handleSubmit} onStateChange={handleStateChange} />
           </>
         )}
