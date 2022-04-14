@@ -9,7 +9,7 @@ export function SingleChoiceQuestion(props) {
         <label>
           <input
             type="radio"
-            name="question"
+            name={props.id}
             id={id}
             onChange={() => props.onChoice(props.id, option.value)}
           />

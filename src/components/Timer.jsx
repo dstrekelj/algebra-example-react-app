@@ -13,7 +13,7 @@ export function Timer(props) {
       clearInterval(intervalId);
       props.onFinish(refTime.current);
     };
-  }, [props]);
+  }, []);
 
   useEffect(() => {
     props.onTick(time);
