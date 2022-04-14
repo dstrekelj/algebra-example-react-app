@@ -10,14 +10,14 @@ function App() {
   const [actionCount, setActionCount] = useState(0);
   const [quizAnswer, setQuizAnswer] = useState(null);
   const [loginState, setLoginState] = useState(null);
+  const [finishTime, setFinishTime] = useState(null);
+
   const id = idHelpers.generateId();
-  const handleSubmit = (answers, id) => {
-    setQuizAnswer({ answers, id });
-  };
+
+  const handleSubmit = (answers, id) => setQuizAnswer({ answers, id });
   const handleStateChange = () => setActionCount((state) => state + 1);
-  const handleLogin = (formState) => {
-    setLoginState(formState);
-  };
+  const handleLogin = (formState) => setLoginState(formState);
+  const handleTimerFinish = (time) => setFinishTime(time);
 
   let answerComponents = null;
 
@@ -44,11 +44,12 @@ function App() {
         )}
         {quizAnswer === null && loginState !== null && (
           <>
-            <Timer onStop={(time) => console.log(time)} />
+            <Timer onFinish={handleTimerFinish} />
             <Quiz id={id} onSubmit={handleSubmit} onStateChange={handleStateChange} />
           </>
         )}
         {quizAnswer !== null && answerComponents}
+        {finishTime !== null && <div>{finishTime} s</div>}
       </header>
     </div>
   );

@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function Timer(props) {
   const [time, setTime] = useState(0);
-  const [isStopped, setIsStopped] = useState(false);
+  const refTime = useRef(time);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -10,25 +10,15 @@ export function Timer(props) {
     }, 1000);
 
     return () => {
-      console.log("interval");
       clearInterval(intervalId);
-      setIsStopped(true);
+      props.onFinish(refTime.current);
     };
-  }, []);
+  }, [props]);
 
   useEffect(() => {
-    console.log("isStopped", isStopped);
-    if (isStopped) {
-      props.onStop(time);
-    }
-
-    return () => {
-      console.log("isStopped", isStopped);
-      if (isStopped) {
-        props.onStop(time);
-      }
-    };
-  }, [isStopped, props, time]);
+    props.onTick(time);
+    refTime.current = time;
+  }, [time, props]);
 
   return <div>{time} s</div>;
 }
