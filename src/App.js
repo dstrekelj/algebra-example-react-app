@@ -35,6 +35,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <button onClick={() => appState.setId("foo")}>Click me</button>
+        <div>
+          {appState.translate("currentLocale")}: {appState.locale}
+        </div>
+        <button onClick={() => appState.setLocale("hr")}>HR</button>
+        <button onClick={() => appState.setLocale("en")}>EN</button>
+        <button onClick={() => appState.setLocale("de")}>DE</button>
         <p>Your action count is: {actionCount}</p>
         <RepositoryLink>View Repository</RepositoryLink>
         {loginState === null && <LoginForm onLogin={handleLogin} />}
