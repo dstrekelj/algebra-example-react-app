@@ -5,6 +5,9 @@ import { useContext, useState } from "react";
 import { LoginForm } from "./components/LoginForm";
 import { Timer } from "./components/Timer";
 import { AppContext } from "./contexts/AppContext";
+import { withLocale } from "./hoc/withLocale";
+
+const LocalizedRepositoryLink = withLocale(RepositoryLink);
 
 function App() {
   const appState = useContext(AppContext);
@@ -43,6 +46,7 @@ function App() {
         <button onClick={() => appState.setLocale("de")}>DE</button>
         <p>Your action count is: {actionCount}</p>
         <RepositoryLink>View Repository</RepositoryLink>
+        <LocalizedRepositoryLink>View Repository</LocalizedRepositoryLink>
         {loginState === null && <LoginForm onLogin={handleLogin} />}
         {loginState !== null && (
           <div>

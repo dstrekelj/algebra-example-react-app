@@ -6,6 +6,8 @@ export const AppConsumer = AppContext.Consumer;
 const translations = {
   "en.currentLocale": "Current locale",
   "hr.currentLocale": "Trenutni jezik",
+  "en.View Repository": "View Repository",
+  "hr.View Repository": "Vidi Repozitorij",
 };
 
 export function AppProvider(props) {
