@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "../contexts/AppContext";
 import { FreeInputQuestion } from "./FreeInputQuestion";
 import { SingleChoiceQuestion } from "./SingleChoiceQuestion";
 
@@ -83,6 +84,7 @@ const singleChoiceQuestions = [
 ];
 
 export function Quiz(props) {
+  const appState = useContext(AppContext);
   const [state, setState] = useState({});
 
   useEffect(() => {
@@ -97,7 +99,7 @@ export function Quiz(props) {
   };
 
   const handleSubmit = () => {
-    props.onSubmit(state, props.id);
+    props.onSubmit(state, appState.id);
   };
 
   const questionsMap = questions.map((question) => {
