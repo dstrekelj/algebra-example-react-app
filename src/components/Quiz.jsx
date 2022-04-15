@@ -99,7 +99,7 @@ export function Quiz(props) {
   };
 
   const handleSubmit = () => {
-    props.onSubmit(state, appState.id);
+    props.onSubmit(state, appState.state.id);
   };
 
   const questionsMap = questions.map((question) => {

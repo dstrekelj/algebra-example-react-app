@@ -34,6 +34,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <button onClick={() => appState.setId("foo")}>Click me</button>
         <p>Your action count is: {actionCount}</p>
         <RepositoryLink>View Repository</RepositoryLink>
         {loginState === null && <LoginForm onLogin={handleLogin} />}
