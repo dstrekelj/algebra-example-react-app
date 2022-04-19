@@ -6,6 +6,7 @@ import { Timer } from "./components/Timer";
 import { AppContext } from "./contexts/AppContext";
 import { withLocale } from "./hoc/withLocale";
 import { Heading } from "./components/typography/Heading";
+import { Paragraph } from "./components/typography/Paragraph";
 import { Button } from "./components/Button";
 
 const LocalizedRepositoryLink = withLocale(RepositoryLink);
@@ -50,9 +51,9 @@ function App() {
         <Button buttonType="primary" onClick={() => appState.setId("foo")}>
           Click me
         </Button>
-        <div>
+        <Paragraph element="div">
           {appState.translate("currentLocale")}: {appState.locale}
-        </div>
+        </Paragraph>
         <Button buttonType="primary" onClick={() => appState.setLocale("hr")}>
           HR
         </Button>
@@ -62,7 +63,7 @@ function App() {
         <Button buttonType="ghost" onClick={() => appState.setLocale("de")}>
           DE
         </Button>
-        <p>Your action count is: {actionCount}</p>
+        <Paragraph element="p">Your action count is: {actionCount}</Paragraph>
         <RepositoryLink>View Repository</RepositoryLink>
         <LocalizedRepositoryLink>View Repository</LocalizedRepositoryLink>
         {loginState === null && <LoginForm onLogin={handleLogin} />}
