@@ -1,4 +1,3 @@
-import "./App.css";
 import { RepositoryLink } from "./components/RepositoryLink";
 import { Quiz } from "./components/Quiz";
 import { useContext, useState } from "react";
@@ -6,6 +5,8 @@ import { LoginForm } from "./components/LoginForm";
 import { Timer } from "./components/Timer";
 import { AppContext } from "./contexts/AppContext";
 import { withLocale } from "./hoc/withLocale";
+import { Heading } from "./components/typography/Heading";
+import { Button } from "./components/Button";
 
 const LocalizedRepositoryLink = withLocale(RepositoryLink);
 
@@ -37,13 +38,30 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <button onClick={() => appState.setId("foo")}>Click me</button>
+        <Heading element="h1" size="6">
+          Hello world!
+        </Heading>
+        <Heading element="h2" size="5">
+          Hello world!
+        </Heading>
+        <Heading element="h3" size="4">
+          Hello world!
+        </Heading>
+        <Button buttonType="primary" onClick={() => appState.setId("foo")}>
+          Click me
+        </Button>
         <div>
           {appState.translate("currentLocale")}: {appState.locale}
         </div>
-        <button onClick={() => appState.setLocale("hr")}>HR</button>
-        <button onClick={() => appState.setLocale("en")}>EN</button>
-        <button onClick={() => appState.setLocale("de")}>DE</button>
+        <Button buttonType="primary" onClick={() => appState.setLocale("hr")}>
+          HR
+        </Button>
+        <Button buttonType="secondary" onClick={() => appState.setLocale("en")}>
+          EN
+        </Button>
+        <Button buttonType="ghost" onClick={() => appState.setLocale("de")}>
+          DE
+        </Button>
         <p>Your action count is: {actionCount}</p>
         <RepositoryLink>View Repository</RepositoryLink>
         <LocalizedRepositoryLink>View Repository</LocalizedRepositoryLink>
