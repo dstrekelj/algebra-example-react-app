@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../contexts/AppContext";
+import { Button } from "./Button";
 import { FreeInputQuestion } from "./FreeInputQuestion";
 import { SingleChoiceQuestion } from "./SingleChoiceQuestion";
 
@@ -129,7 +130,9 @@ export function Quiz(props) {
     <div>
       {questionsMap}
       {singleChoiceQuestionsMap}
-      <button onClick={handleSubmit}>Submit</button>
+      <Button buttonType="primary" onClick={handleSubmit}>
+        Submit
+      </Button>
     </div>
   );
 }

@@ -39,38 +39,31 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Heading element="h1" size="6">
-          Hello world!
+        <Heading element="h1" size="1">
+          Quiz Application
         </Heading>
-        <Heading element="h2" size="5">
-          Hello world!
-        </Heading>
-        <Heading element="h3" size="4">
-          Hello world!
-        </Heading>
-        <Button buttonType="primary" onClick={() => appState.setId("foo")}>
-          Click me
-        </Button>
         <Paragraph element="div">
           {appState.translate("currentLocale")}: {appState.locale}
         </Paragraph>
-        <Button buttonType="primary" onClick={() => appState.setLocale("hr")}>
+        <Button buttonType="ghost" onClick={() => appState.setLocale("hr")}>
           HR
         </Button>
-        <Button buttonType="secondary" onClick={() => appState.setLocale("en")}>
+        <Button buttonType="ghost" onClick={() => appState.setLocale("en")}>
           EN
         </Button>
         <Button buttonType="ghost" onClick={() => appState.setLocale("de")}>
           DE
         </Button>
-        <Paragraph element="p">Your action count is: {actionCount}</Paragraph>
-        <RepositoryLink>View Repository</RepositoryLink>
-        <LocalizedRepositoryLink>View Repository</LocalizedRepositoryLink>
+        <Paragraph element="p">
+          <div>Your action count is: {actionCount}</div>
+          <RepositoryLink>View Repository</RepositoryLink>
+          <LocalizedRepositoryLink>View Repository</LocalizedRepositoryLink>
+        </Paragraph>
         {loginState === null && <LoginForm onLogin={handleLogin} />}
         {loginState !== null && (
-          <div>
+          <Paragraph element="div">
             {loginState.name} ({loginState.email})
-          </div>
+          </Paragraph>
         )}
         {quizAnswer === null && loginState !== null && (
           <>
@@ -79,8 +72,8 @@ function App() {
           </>
         )}
         {quizAnswer !== null && answerComponents}
-        {quizAnswer !== null && <div>{quizAnswer.id}</div>}
-        {finishTime !== null && <div>{finishTime} s</div>}
+        {quizAnswer !== null && <Paragraph element="div">{quizAnswer.id}</Paragraph>}
+        {finishTime !== null && <Paragraph element="div">{finishTime} s</Paragraph>}
       </header>
     </div>
   );

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "./Button";
 
 export function LoginForm(props) {
   const [state, setState] = useState({});
@@ -20,14 +21,16 @@ export function LoginForm(props) {
           <input type="text" id="name" name="name" onChange={handleChange} />
         </label>
       </div>
-      <dir>
+      <div>
         <label htmlFor="email">
           Email:
           <input type="email" name="email" id="email" onChange={handleChange} />
         </label>
-      </dir>
+      </div>
       <div>
-        <button type="submit">Sign in</button>
+        <Button buttonType="primary" type="submit">
+          Sign in
+        </Button>
       </div>
     </form>
   );
