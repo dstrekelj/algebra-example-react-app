@@ -5,8 +5,8 @@ import { LoginForm } from "./components/LoginForm";
 import { Timer } from "./components/Timer";
 import { AppContext } from "./contexts/AppContext";
 import { withLocale } from "./hoc/withLocale";
-import { Heading } from "./components/typography/Heading";
-import { Paragraph } from "./components/typography/Paragraph";
+import { Heading } from "./components/Heading";
+import { Paragraph } from "./components/Paragraph";
 import { Button } from "./components/Button";
 
 const LocalizedRepositoryLink = withLocale(RepositoryLink);
