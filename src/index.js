@@ -6,12 +6,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AppProvider } from "./contexts/AppContext";
 import { idHelpers } from "./library/helpers";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppProvider value={{ id: idHelpers.generateId() }}>
-      <App />
-    </AppProvider>
+    <BrowserRouter>
+      <AppProvider value={{ id: idHelpers.generateId() }}>
+        <App />
+      </AppProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root"),
 );

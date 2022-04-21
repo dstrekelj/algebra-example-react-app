@@ -8,6 +8,25 @@ import { withLocale } from "./hoc/withLocale";
 import { Heading } from "./components/Heading";
 import { Paragraph } from "./components/Paragraph";
 import { Button } from "./components/Button";
+import { Routes, Route, Link } from "react-router-dom";
+
+function HomePage() {
+  return (
+    <div>
+      <h1>Home page</h1>
+      <Link to="/help">Help page</Link>
+    </div>
+  );
+}
+
+function HelpPage() {
+  return (
+    <div>
+      <h1>Help page</h1>
+      <Link to="/">Home page</Link>
+    </div>
+  );
+}
 
 const LocalizedRepositoryLink = withLocale(RepositoryLink);
 
@@ -38,6 +57,10 @@ function App() {
 
   return (
     <div className="App">
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path="help" element={<HelpPage />} />
+      </Routes>
       <header className="App-header">
         <Heading element="h1" size="1">
           Quiz Application
