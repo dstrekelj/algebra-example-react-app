@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../contexts/AppContext";
 import { LoginForm } from "../components/LoginForm";
 import { RandomQuote } from "../containers/RandomQuote";
+import { NasaImage } from "../containers/NasaImage";
 
 export function LoginPage() {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ export function LoginPage() {
     <div className="LoginPage">
       <RandomQuote />
       <LoginForm onLogin={handleLogin} />
+      <NasaImage />
     </div>
   );
 }
