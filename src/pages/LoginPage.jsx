@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../contexts/AppContext";
 import { LoginForm } from "../components/LoginForm";
+import { RandomQuote } from "../containers/RandomQuote";
 
 export function LoginPage() {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ export function LoginPage() {
 
   return (
     <div className="LoginPage">
+      <RandomQuote />
       <LoginForm onLogin={handleLogin} />
     </div>
   );
