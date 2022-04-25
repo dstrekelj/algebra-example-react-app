@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import { RandomQuote as Component } from "../components/RandomQuote";
 
 export function RandomQuote(props) {
-  const [state, setState] = useState({
-    quote: "Lorem ipsum",
-    author: "Domagoj",
-  });
+  const [state, setState] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch("https://api.chucknorris.io/jokes/random")
@@ -16,8 +14,16 @@ export function RandomQuote(props) {
           author: "Anonymous",
         }),
       )
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error));
   }, []);
+
+  if (state === null) {
+    return <div>Please wait...</div>;
+  }
+
+  if (error !== null) {
+    return <div>Oh no!</div>;
+  }
 
   return <Component quote={state.quote} author={state.author} />;
 }
