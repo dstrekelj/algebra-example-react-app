@@ -2,10 +2,11 @@ import { ExchangeRates as Component } from "../components/ExchangeRates";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
-export function ExchangeRates() {
+export function ExchangeRates(props) {
+  const currency = props.currency || "EUR";
   const { loading, error, data } = useQuery(gql`
     {
-      rates(currency: "EUR") {
+      rates(currency: "${currency}") {
         currency
         rate
         name
